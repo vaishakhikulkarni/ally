@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class SortCharactersFromParagraph {
-    public static void main() throws FileNotFoundException {
+    public static void main(String args[]) throws FileNotFoundException {
         File file = new File("src/main/resources/test.txt");
         Scanner sc = new Scanner(file);
 
@@ -14,7 +14,7 @@ public class SortCharactersFromParagraph {
         }
 
         String sortedData = sortInputData(inputData.toString());
-        System.out.println("------------------Sorted Data: " + sortedData);
+        System.out.println("------------------Sorted Data: \n" + sortedData);
     }
 
     static String sortInputData(String input) {
@@ -39,17 +39,36 @@ public class SortCharactersFromParagraph {
     private static char[] sorting(String data) {
 
         char[] charInputArray = data.toCharArray();
+        quickSort(charInputArray,0,charInputArray.length-1);
+        return charInputArray;
+    }
 
-        for (int i = 0; i < charInputArray.length; i++) {
-            for (int j = 0; j < charInputArray.length; j++) {
-                if (charInputArray[j] > charInputArray[i]) {
-                    char temp = charInputArray[i];
-                    charInputArray[i] = charInputArray[j];
-                    charInputArray[j] = temp;
-                }
+    private static int partition(char[] array, int begin, int end) {
+        int pivot = end;
+
+        int counter = begin;
+        for (int i = begin; i < end; i++) {
+            if (array[i] < array[pivot]) {
+                swap(array, counter, i);
+                counter++;
             }
         }
-        return charInputArray;
+        swap(array, pivot, counter);
+
+        return counter;
+    }
+
+    private static void swap(char[] array, int counter, int i) {
+        char temp = array[counter];
+        array[counter] = array[i];
+        array[i] = temp;
+    }
+
+    private static void quickSort(char[] array, int begin, int end) {
+        if (end <= begin) return;
+        int pivot = partition(array, begin, end);
+        quickSort(array, begin, pivot-1);
+        quickSort(array, pivot+1, end);
     }
 
     private static boolean isNullOrEmpty(String str) {
