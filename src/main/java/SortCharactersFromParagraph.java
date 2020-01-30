@@ -14,15 +14,26 @@ public class SortCharactersFromParagraph {
         }
 
         String sortedData = sortInputData(inputData.toString());
-        System.out.println("------------------: "+sortedData);
+        System.out.println("------------------Sorted Data: " + sortedData);
     }
 
-    public static String sortInputData(String input) {
-        String data = input
+    static String sortInputData(String input) {
+        String data = parseData(input);
+
+        char[] charInputArray = sorting(data);
+
+        return String.valueOf(charInputArray);
+    }
+
+    private static String parseData(String input) {
+        return input
                 .trim()
                 .toLowerCase()
                 .replaceAll("[^a-zA-Z0-9+]", "")
-                .replaceAll(" ","");
+                .replaceAll(" ", "");
+    }
+
+    private static char[] sorting(String data) {
 
         char[] charInputArray = data.toCharArray();
 
@@ -37,7 +48,6 @@ public class SortCharactersFromParagraph {
                 }
             }
         }
-
-        return String.valueOf(charInputArray);
+        return charInputArray;
     }
 }
