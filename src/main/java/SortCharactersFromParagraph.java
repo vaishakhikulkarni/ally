@@ -18,7 +18,11 @@ public class SortCharactersFromParagraph {
     }
 
     public static String sortInputData(String input) {
-        String data = input.trim().toLowerCase();
+        String data = input
+                .trim()
+                .toLowerCase()
+                .replaceAll("[^a-zA-Z0-9+]", "")
+                .replaceAll(" ","");
         return data;
     }
 }

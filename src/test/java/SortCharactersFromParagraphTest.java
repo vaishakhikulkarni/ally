@@ -24,4 +24,17 @@ class SortCharactersFromParagraphTest {
         Assertions.assertEquals(input.trim().toLowerCase(),actualOutput);
     }
 
+    @Test
+    void inputStringHasSpecialSymbols_ReturnStringsWithNoSpecialSymbols() {
+        String input = " T. ";
+        String actualOutput =SortCharactersFromParagraph.sortInputData(input);
+        Assertions.assertEquals("t",actualOutput);
+    }
+
+    @Test
+    void twoSimilarCharactersHasSpaceBetweenThem_ReturnStringsWithNoSpaceBetweenCharacters() {
+        String input = " T. t";
+        String actualOutput =SortCharactersFromParagraph.sortInputData(input);
+        Assertions.assertEquals("tt",actualOutput);
+    }
 }
