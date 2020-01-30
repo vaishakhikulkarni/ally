@@ -4,6 +4,6 @@
 
 2. QuickSort used for sorting efficiently
 
-Best Case: O(n)
+Best Case: O(nlogn)
 Average Case: O(nlogn)
 Worst Case : O(n^2) 

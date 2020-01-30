@@ -54,7 +54,6 @@ public class SortCharactersFromParagraph {
             }
         }
         swap(array, pivot, counter);
-
         return counter;
     }
 
