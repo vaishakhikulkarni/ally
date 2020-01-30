@@ -18,7 +18,7 @@ public class SortCharactersFromParagraph {
     }
 
     public static String sortInputData(String input) {
-        String data = input.trim();
+        String data = input.trim().toLowerCase();
         return data;
     }
 }

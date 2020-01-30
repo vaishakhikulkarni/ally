@@ -17,4 +17,11 @@ class SortCharactersFromParagraphTest {
         Assertions.assertEquals(input.trim(),actualOutput);
     }
 
+    @Test
+    void inputSingleUpperCase_ReturnCharacterInLowerCase() {
+        String input = " T ";
+        String actualOutput =SortCharactersFromParagraph.sortInputData(input);
+        Assertions.assertEquals(input.trim().toLowerCase(),actualOutput);
+    }
+
 }
