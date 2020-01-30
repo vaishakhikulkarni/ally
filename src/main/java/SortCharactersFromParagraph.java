@@ -18,11 +18,14 @@ public class SortCharactersFromParagraph {
     }
 
     static String sortInputData(String input) {
-        String data = parseData(input);
 
-        char[] charInputArray = sorting(data);
+        if (isNullOrEmpty(input)) {
+            String data = parseData(input);
+            char[] charInputArray = sorting(data);
 
-        return String.valueOf(charInputArray);
+            return String.valueOf(charInputArray);
+        }
+        return "";
     }
 
     private static String parseData(String input) {
@@ -38,9 +41,7 @@ public class SortCharactersFromParagraph {
         char[] charInputArray = data.toCharArray();
 
         for (int i = 0; i < charInputArray.length; i++) {
-
             for (int j = 0; j < charInputArray.length; j++) {
-
                 if (charInputArray[j] > charInputArray[i]) {
                     char temp = charInputArray[i];
                     charInputArray[i] = charInputArray[j];
@@ -49,5 +50,9 @@ public class SortCharactersFromParagraph {
             }
         }
         return charInputArray;
+    }
+
+    private static boolean isNullOrEmpty(String str) {
+        return (str != null && !str.isEmpty());
     }
 }
