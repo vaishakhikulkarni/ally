@@ -37,4 +37,18 @@ class SortCharactersFromParagraphTest {
         String actualOutput =SortCharactersFromParagraph.sortInputData(input);
         Assertions.assertEquals("tt",actualOutput);
     }
+
+    @Test
+    void inputString_returnNaturalSortedString() {
+        String input = "test";
+        String actualOutput =SortCharactersFromParagraph.sortInputData(input);
+        Assertions.assertEquals("estt",actualOutput);
+    }
+
+    @Test
+    void inputStringsWithSpecialSymbolUpperCase_returnNaturalSortedString() {
+        String input = "test sorting characters";
+        String actualOutput =SortCharactersFromParagraph.sortInputData(input);
+        Assertions.assertEquals("aacceeghinorrrssstttt",actualOutput);
+    }
 }

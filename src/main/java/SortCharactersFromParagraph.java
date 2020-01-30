@@ -23,6 +23,21 @@ public class SortCharactersFromParagraph {
                 .toLowerCase()
                 .replaceAll("[^a-zA-Z0-9+]", "")
                 .replaceAll(" ","");
-        return data;
+
+        char[] charInputArray = data.toCharArray();
+
+        for (int i = 0; i < charInputArray.length; i++) {
+
+            for (int j = 0; j < charInputArray.length; j++) {
+
+                if (charInputArray[j] > charInputArray[i]) {
+                    char temp = charInputArray[i];
+                    charInputArray[i] = charInputArray[j];
+                    charInputArray[j] = temp;
+                }
+            }
+        }
+
+        return String.valueOf(charInputArray);
     }
 }
