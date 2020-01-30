@@ -47,7 +47,7 @@ class SortCharactersFromParagraphTest {
 
     @Test
     void inputStringsWithSpecialSymbolUpperCase_returnNaturalSortedString() {
-        String input = "test sorting characters";
+        String input = " test.. sorting characters ";
         String actualOutput =SortCharactersFromParagraph.sortInputData(input);
         Assertions.assertEquals("aacceeghinorrrssstttt",actualOutput);
     }
